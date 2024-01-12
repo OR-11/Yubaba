@@ -19,7 +19,10 @@ namespace Yubaba
                 if (i == name.Old.Length - 1) goto Writing;
             }
             Console.WriteLine(name.Old);
-            name.New = name.Old[new Random().Next(name.Old.Length)];
+            while (name.New[i] == ' ' || name.New[i] == '\t' || name.New[i] == '\n' || name.New[i] == '\r')
+            {
+              name.New = name.Old[new Random().Next(name.Old.Length)];
+            }
             Console.Write($"\nフン。{name.Old}というのかい？贅沢な名だねぇ。今からおまえの名前は{name.New}だ。いいかい、{name.New}だよ。分かったら返事をするんだ、{name.New}!!");
         }
     }
